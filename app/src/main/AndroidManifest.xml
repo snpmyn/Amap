@@ -1,17 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:dist="http://schemas.android.com/apk/distribution"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.zsp.amap">
 
     <dist:module dist:instant="true" />
 
+    <!--网络定位-->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!--GPS定位-->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!--运营商信息（支持提供运营商信息相关接口）-->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!--wifi网络信息（网络定位）-->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!--wifi权限（网络定位）-->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <!--网络-->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!--手机当前状-->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!--写缓存数据至扩展存储卡-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!--申调A-GPS模块-->
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+    <!--申获蓝牙信息（室内定位）-->
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+
     <application
-        android:allowBackup="true"
+        android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,6 +43,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!--key-->
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="f8d8e46559574b8d70a200da45d1b628" />
+        <!--定位服务-->
+        <service android:name="com.amap.api.location.APSService" />
     </application>
 
 </manifest>

@@ -1,6 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        debug {
+            storeFile file('D:\\签名\\高德地图\\amap.jks')
+            storePassword 'sxlllwlkjyxgs'
+            keyAlias = 'key0'
+            keyPassword 'sxlllwlkjyxgs'
+        }
+    }
     compileSdkVersion 29
     defaultConfig {
         applicationId "com.zsp.amap"
@@ -9,11 +17,18 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        ndk {
+            // 支持SO库架构
+            abiFilters 'armeabi', 'x86'//, 'armeabi-v7a', 'x86_64', 'arm64-v8a'
+        }
     }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            signingConfig signingConfigs.debug
         }
     }
     compileOptions {
@@ -30,4 +45,6 @@ dependencies {
     implementation 'com.jakewharton:butterknife:10.1.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.1.0'
     /*ButterKnife*/
+    implementation 'com.amap.api:location:3.3.0'
+    /*定位*/
 }
