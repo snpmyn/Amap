@@ -35,6 +35,9 @@ android {
         sourceCompatibility 1.8
         targetCompatibility 1.8
     }
+    configurations.all {
+        resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
+    }
 }
 
 dependencies {
@@ -45,6 +48,8 @@ dependencies {
     implementation 'com.jakewharton:butterknife:10.1.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.1.0'
     /*ButterKnife*/
-    implementation 'com.amap.api:location:3.3.0'
+    implementation 'com.github.snpmyn:Util:master-SNAPSHOT'
+    /*util*/
+    implementation 'com.amap.api:location:3.7.0'
     /*定位*/
 }

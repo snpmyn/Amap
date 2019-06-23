@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Amap</string>
+    <string name="locationResult">定位结果</string>
 </resources>
