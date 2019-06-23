@@ -50,6 +50,6 @@ dependencies {
     /*ButterKnife*/
     implementation 'com.github.snpmyn:Util:master-SNAPSHOT'
     /*util*/
-    implementation 'com.amap.api:location:3.7.0'
+    implementation 'com.amap.api:location:4.6.0'
     /*定位*/
 }
