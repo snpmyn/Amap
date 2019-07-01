@@ -210,6 +210,15 @@ public class LocationKit {
     }
 
     /**
+     * 停定位
+     * <p>
+     * 不销本地定位服务。
+     */
+    public void stopLocation() {
+        aMapLocationClient.stopLocation();
+    }
+
+    /**
      * 销毁
      * <p>
      * 销定位客户端同销本地定位服务。
