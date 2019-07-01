@@ -17,8 +17,8 @@ import location.LocationKit;
  * @date: 2019/6/22 11:20
  */
 public class MainActivity extends AppCompatActivity {
-    @BindView(R.id.mainActivityTvLocationResult)
-    TextView mainActivityTvLocationResult;
+    @BindView(R.id.mainActivityTvResult)
+    TextView mainActivityTvResult;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,10 +34,10 @@ public class MainActivity extends AppCompatActivity {
         LocationKit.getInstanceByDcl(this).destroy();
     }
 
-    @OnClick(R.id.mainActivityMbLocationResult)
+    @OnClick(R.id.mainActivityMbLocation)
     public void onViewClicked(View view) {
-        if (view.getId() == R.id.mainActivityMbLocationResult) {
-            mainActivityTvLocationResult.setText(LocationKit.getInstanceByDcl(this).locationResult());
+        if (view.getId() == R.id.mainActivityMbLocation) {
+            mainActivityTvResult.setText(LocationKit.getInstanceByDcl(this).locationResult());
         }
     }
 }

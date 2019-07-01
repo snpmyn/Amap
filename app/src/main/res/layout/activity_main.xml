@@ -9,16 +9,16 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/mainActivityTvLocationResult"
+        android:id="@+id/mainActivityTvResult"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="@dimen/sp_13"
         tools:text="定位结果" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/mainActivityMbLocationResult"
+        android:id="@+id/mainActivityMbLocation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/locationResult"
+        android:text="@string/location"
         android:textAppearance="?android:attr/textAppearanceInverse" />
 </LinearLayout>
