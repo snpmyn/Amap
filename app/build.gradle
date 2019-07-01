@@ -51,5 +51,5 @@ dependencies {
     implementation 'com.github.snpmyn:Util:master-SNAPSHOT'
     /*util*/
     implementation 'com.amap.api:location:4.6.0'
-    /*定位*/
+    /*高德（定位）*/
 }
