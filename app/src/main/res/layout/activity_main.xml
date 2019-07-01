@@ -16,9 +16,9 @@
         tools:text="定位结果" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/mainActivityMbLocation"
+        android:id="@+id/mainActivityMbLocationResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/location"
+        android:text="@string/locationResult"
         android:textAppearance="?android:attr/textAppearanceInverse" />
 </LinearLayout>

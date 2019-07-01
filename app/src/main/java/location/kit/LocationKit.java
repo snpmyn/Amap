@@ -1,6 +1,6 @@
-package location;
+package location.kit;
 
-import android.content.Context;
+import android.app.Application;
 import android.util.Log;
 
 import com.amap.api.location.AMapLocation;
@@ -35,10 +35,10 @@ public class LocationKit {
     /**
      * constructor
      *
-     * @param context 上下文
+     * @param application 应用
      */
-    private LocationKit(Context context) {
-        this.aMapLocationClient = new AMapLocationClient(context.getApplicationContext());
+    private LocationKit(Application application) {
+        this.aMapLocationClient = new AMapLocationClient(application);
     }
 
     /**
@@ -54,8 +54,8 @@ public class LocationKit {
      * 两次判空避多次同步。
      * <p>
      * 缺点：
-     * {@link #dclInstance}、{@link #LocationKit(Context)}、getInstanceByDcl()因jvm允乱序执行。该三句代码顺序不定，或现DCL失效。
-     * 步骤一：A线程执行getInstanceByDcl()时还没执行构造方法{@link #LocationKit(Context)}。
+     * {@link #dclInstance}、{@link #LocationKit(Application)}、getInstanceByDcl()因jvm允乱序执行。该三句代码顺序不定，或现DCL失效。
+     * 步骤一：A线程执行getInstanceByDcl()时还没执行构造方法{@link #LocationKit(Application)}。
      * 步骤二：此时B线程调getInstanceByDcl()，因A已执行getInstanceByDcl()，故{@link #dclInstance}不为空就直获。
      * 步骤三：因B直获，而真实情况A线程构造方法还未执行，故{@link #dclInstance}为空。
      * <p>
@@ -65,11 +65,11 @@ public class LocationKit {
      *
      * @return 单例
      */
-    public static LocationKit getInstanceByDcl(Context context) {
+    public static LocationKit getInstanceByDcl(Application application) {
         if (dclInstance == null) {
             synchronized (LocationKit.class) {
                 if (dclInstance == null) {
-                    dclInstance = new LocationKit(context);
+                    dclInstance = new LocationKit(application);
                 }
             }
         }
