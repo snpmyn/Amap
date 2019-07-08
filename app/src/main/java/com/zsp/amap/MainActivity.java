@@ -7,10 +7,6 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.qw.soul.permission.SoulPermission;
-import com.qw.soul.permission.bean.Permission;
-import com.qw.soul.permission.bean.Permissions;
-import com.qw.soul.permission.callbcak.CheckRequestPermissionsListener;
 import com.zsp.utilone.permission.SoulPermissionUtils;
 
 import application.App;
@@ -27,37 +23,40 @@ import location.kit.LocationKit;
 public class MainActivity extends AppCompatActivity {
     @BindView(R.id.mainActivityTvResult)
     TextView mainActivityTvResult;
+    /**
+     * SoulPermissionUtils
+     */
+    private SoulPermissionUtils soulPermissionUtils;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        execute();
+        initConfiguration();
     }
 
-    private void execute() {
-        SoulPermission.getInstance().checkAndRequestPermissions(
-                Permissions.build(Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION),
-                // if you want do noting or no need all the callbacks you may use SimplePermissionsAdapter instead
-                new CheckRequestPermissionsListener() {
-                    @Override
-                    public void onAllPermissionOk(Permission[] allPermissions) {
-
-                    }
-
-                    @Override
-                    public void onPermissionDenied(Permission[] refusedPermissions) {
-                        SoulPermissionUtils soulPermissionUtils = new SoulPermissionUtils();
-                        soulPermissionUtils.multiPermissionsDenied(MainActivity.this, refusedPermissions);
-                    }
-                });
+    protected void initConfiguration() {
+        soulPermissionUtils = new SoulPermissionUtils();
     }
 
     @OnClick(R.id.mainActivityMbLocationResult)
     public void onViewClicked(View view) {
         if (view.getId() == R.id.mainActivityMbLocationResult) {
-            mainActivityTvResult.setText(LocationKit.getInstanceByDcl(App.getInstance()).locationResult());
+            soulPermissionUtils.checkAndRequestPermission(this,
+                    Manifest.permission.ACCESS_COARSE_LOCATION,
+                    soulPermissionUtils,
+                    new SoulPermissionUtils.SoulPermissionUtilsCallBack() {
+                        @Override
+                        public void onPermissionOk() {
+                            mainActivityTvResult.setText(LocationKit.getInstanceByDcl(App.getInstance()).locationResult());
+                        }
+
+                        @Override
+                        public void onPermissionDenied() {
+                            finish();
+                        }
+                    }, true);
         }
     }
 }
