@@ -8,6 +8,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.zsp.utilone.permission.SoulPermissionUtils;
+import com.zsp.utilone.toast.ToastUtils;
 
 import application.App;
 import butterknife.BindView;
@@ -44,19 +45,24 @@ public class MainActivity extends AppCompatActivity {
     public void onViewClicked(View view) {
         if (view.getId() == R.id.mainActivityMbLocationResult) {
             soulPermissionUtils.checkAndRequestPermission(this,
-                    Manifest.permission.ACCESS_COARSE_LOCATION,
-                    soulPermissionUtils,
-                    new SoulPermissionUtils.SoulPermissionUtilsCallBack() {
+                    Manifest.permission.ACCESS_COARSE_LOCATION, soulPermissionUtils,
+                    true, new SoulPermissionUtils.CheckAndRequestPermissionCallBack() {
                         @Override
                         public void onPermissionOk() {
                             mainActivityTvResult.setText(LocationKit.getInstanceByDcl(App.getInstance()).locationResult());
                         }
 
                         @Override
-                        public void onPermissionDenied() {
+                        public void onPermissionDeniedInMiUi(String s) {
+                            ToastUtils.shortShow(MainActivity.this, s);
                             finish();
                         }
-                    }, true);
+
+                        @Override
+                        public void onPermissionDeniedWithoutLoopHint(String s) {
+
+                        }
+                    });
         }
     }
 }
