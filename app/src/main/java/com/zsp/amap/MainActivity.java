@@ -53,13 +53,13 @@ public class MainActivity extends AppCompatActivity {
                         }
 
                         @Override
-                        public void onPermissionDeniedInMiUi(String s) {
+                        public void onPermissionDeniedNotRationaleInMiUi(String s) {
                             ToastUtils.shortShow(MainActivity.this, s);
                             finish();
                         }
 
                         @Override
-                        public void onPermissionDeniedWithoutLoopHint(String s) {
+                        public void onPermissionDeniedNotRationaleWithoutLoopHint(String s) {
 
                         }
                     });
