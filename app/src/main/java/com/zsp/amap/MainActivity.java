@@ -44,11 +44,10 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.mainActivityMbLocationResult)
     public void onViewClicked(View view) {
         if (view.getId() == R.id.mainActivityMbLocationResult) {
-            soulPermissionUtils.checkAndRequestPermission(this,
-                    Manifest.permission.ACCESS_COARSE_LOCATION, soulPermissionUtils,
-                    true, new SoulPermissionUtils.CheckAndRequestPermissionCallBack() {
+            soulPermissionUtils.checkAndRequestPermissions(soulPermissionUtils, false,
+                    new SoulPermissionUtils.CheckAndRequestPermissionsCallBack() {
                         @Override
-                        public void onPermissionOk() {
+                        public void onAllPermissionOk() {
                             mainActivityTvResult.setText(LocationKit.getInstanceByDcl(App.getInstance()).locationResult());
                         }
 
@@ -62,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
                         public void onPermissionDeniedNotRationaleWithoutLoopHint(String s) {
 
                         }
-                    });
+                    }, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.ACCESS_COARSE_LOCATION);
         }
     }
 }
