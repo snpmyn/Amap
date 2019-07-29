@@ -1,12 +1,13 @@
 package location.kit;
 
 import android.app.Application;
-import android.util.Log;
 
 import com.amap.api.location.AMapLocation;
 import com.amap.api.location.AMapLocationClient;
 import com.amap.api.location.AMapLocationClientOption;
 import com.zsp.utilone.datetime.DateUtils;
+
+import timber.log.Timber;
 
 /**
  * Created on 2019/6/22.
@@ -153,9 +154,7 @@ public class LocationKit {
                     aMapLocationResult = aMapLocation;
                 } else {
                     // 定位失败通错误码/信息确定原因，详见错误码表。
-                    Log.e("AmapError", "location Error, ErrCode:"
-                            + aMapLocation.getErrorCode() + ", errInfo:"
-                            + aMapLocation.getErrorInfo());
+                    Timber.d("AmapError: location Error, ErrCode: %s, errInfo: %s", aMapLocation.getErrorCode(), aMapLocation.getErrorInfo());
                 }
             }
         });
