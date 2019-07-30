@@ -5,8 +5,14 @@ android {
         debug {
             storeFile file('D:\\签名\\高德地图\\amap.jks')
             storePassword 'sxlllwlkjyxgs'
-            keyAlias = 'key0'
             keyPassword 'sxlllwlkjyxgs'
+            keyAlias = 'key0'
+        }
+        release {
+            storeFile file('D:\\签名\\高德地图\\amap.jks')
+            storePassword 'sxlllwlkjyxgs'
+            keyPassword 'sxlllwlkjyxgs'
+            keyAlias = 'key0'
         }
     }
     compileSdkVersion 29
@@ -18,7 +24,6 @@ android {
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         ndk {
-            // 支持SO库架构
             abiFilters 'armeabi', 'x86'//, 'armeabi-v7a', 'x86_64', 'arm64-v8a'
         }
     }
@@ -26,6 +31,7 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
         debug {
             signingConfig signingConfigs.debug
@@ -52,7 +58,6 @@ dependencies {
     /*ButterKnife*/
     implementation 'com.amap.api:location:4.7.0'
     /*高德地图（定位）*/
-    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.6.3'
-    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.3'
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.0-alpha-2'
     /*LeakCanary*/
 }
