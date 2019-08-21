@@ -4,28 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.zsp.amap">
 
-    <dist:module dist:instant="true" />
-
-    <!--网络定位-->
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <!--GPS定位-->
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <!--运营商信息（支持提供运营商信息相关接口）-->
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <!--wifi网络信息（网络定位）-->
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <!--wifi权限（网络定位）-->
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-    <!--网络-->
-    <uses-permission android:name="android.permission.INTERNET" />
-    <!--手机当前状-->
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <!--申调A-GPS模块-->
-    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
-    <!--申获蓝牙信息（室内定位）-->
-    <uses-permission android:name="android.permission.BLUETOOTH" />
-    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
-
     <application
         android:name="application.App"
         android:allowBackup="false"
@@ -51,5 +29,28 @@
         <!--定位服务-->
         <service android:name="com.amap.api.location.APSService" />
     </application>
+    <!--网络定位-->
+    <uses-permission
+        android:name="android.permission.ACCESS_COARSE_LOCATION"
+        tools:ignore="ManifestOrder" />
+    <!--GPS定位-->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!--运营商信息（支持提供运营商信息相关接口）-->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!--wifi网络信息（网络定位）-->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!--wifi权限（网络定位）-->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <!--网络-->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!--手机当前状-->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!--申调A-GPS模块-->
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+    <!--申获蓝牙信息（室内定位）-->
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+
+    <dist:module dist:instant="true" />
 
 </manifest>

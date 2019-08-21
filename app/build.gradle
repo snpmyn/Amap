@@ -3,13 +3,13 @@ apply plugin: 'com.android.application'
 android {
     signingConfigs {
         debug {
-            storeFile file('D:\\签名\\高德地图\\amap.jks')
+            storeFile file('D:\\SignatureFile\\Amap\\amap.jks')
             storePassword 'sxlllwlkjyxgs'
             keyPassword 'sxlllwlkjyxgs'
             keyAlias = 'key0'
         }
         release {
-            storeFile file('D:\\签名\\高德地图\\amap.jks')
+            storeFile file('D:\\SignatureFile\\Amap\\amap.jks')
             storePassword 'sxlllwlkjyxgs'
             keyPassword 'sxlllwlkjyxgs'
             keyAlias = 'key0'
