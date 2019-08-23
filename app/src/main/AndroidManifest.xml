@@ -22,11 +22,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <!--key-->
+        <!--Amap（key）-->
         <meta-data
             android:name="com.amap.api.v2.apikey"
             android:value="f8d8e46559574b8d70a200da45d1b628" />
-        <!--定位服务-->
+        <!--Amap（定位服务）-->
         <service android:name="com.amap.api.location.APSService" />
     </application>
     <!--网络定位-->
