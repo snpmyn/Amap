@@ -31,7 +31,7 @@ public class LocationKit {
     /**
      * 定位结果
      */
-    private AMapLocation aMapLocationResult;
+    public AMapLocation aMapLocationResult;
 
     /**
      * constructor
