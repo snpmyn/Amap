@@ -20,7 +20,7 @@
 
 ### 权限
 #### AndroidLibrary - Library
-待定
+待补充
 #### com.github.snpmyn:Util
 ##### app
 * android:name="android.permission.WRITE_EXTERNAL_STORAGE"（避重）
