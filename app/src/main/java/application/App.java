@@ -3,9 +3,8 @@ package application;
 import android.app.Application;
 
 import com.zsp.amap.BuildConfig;
+import com.zsp.amap.library.configure.LocationInitConfigure;
 import com.zsp.utilone.timber.configure.TimberInitConfigure;
-
-import location.configure.LocationInitConfigure;
 
 /**
  * Created on 2019/7/1.

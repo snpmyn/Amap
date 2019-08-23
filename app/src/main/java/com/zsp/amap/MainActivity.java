@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.zsp.amap.library.kit.LocationKit;
 import com.zsp.utilone.permission.SoulPermissionUtils;
 import com.zsp.utilone.toast.ToastUtils;
 
@@ -14,7 +15,6 @@ import application.App;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import location.kit.LocationKit;
 
 /**
  * @decs: 主页

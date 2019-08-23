@@ -1,8 +1,8 @@
-package location.configure;
+package com.zsp.amap.library.configure;
 
 import android.app.Application;
 
-import location.kit.LocationKit;
+import com.zsp.amap.library.kit.LocationKit;
 
 /**
  * Created on 2019/7/1.

@@ -3,13 +3,13 @@ apply plugin: 'com.android.application'
 android {
     signingConfigs {
         debug {
-            storeFile file('D:\\SignatureFile\\Amap\\amap.jks')
+            storeFile file('../amap.jks')
             storePassword 'sxlllwlkjyxgs'
             keyPassword 'sxlllwlkjyxgs'
             keyAlias = 'key0'
         }
         release {
-            storeFile file('D:\\SignatureFile\\Amap\\amap.jks')
+            storeFile file('../amap.jks')
             storePassword 'sxlllwlkjyxgs'
             keyPassword 'sxlllwlkjyxgs'
             keyAlias = 'key0'
@@ -41,9 +41,6 @@ android {
         sourceCompatibility 1.8
         targetCompatibility 1.8
     }
-    configurations.all {
-        resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
-    }
 }
 
 dependencies {
@@ -51,13 +48,11 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.1.0-rc01'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta2'
     /*自带*/
-    implementation 'com.github.snpmyn:Util:master-SNAPSHOT'
-    /*util*/
+    implementation project(path: ':library')
+    /*library*/
     implementation 'com.jakewharton:butterknife:10.1.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.1.0'
     /*ButterKnife*/
-    implementation 'com.amap.api:location:4.7.0'
-    /*Amap（定位）*/
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.0-beta-2'
     /*LeakCanary*/
 }

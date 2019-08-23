@@ -3,9 +3,10 @@
 
 ### 依赖
 #### 自身
-##### app
-implementation 'com.github.snpmyn:*Util*:master-SNAPSHOT'
-#### com.github.snpmyn:Util(implementation)
+##### AndroidLibrary - Library
+* api 'com.github.snpmyn:*Util*:master-SNAPSHOT'（避重）
+* implementation 'com.amap.api:location:4.7.0'
+#### com.github.snpmyn:Util(api)
 ##### AndroidLibrary - UtilOne
 * api 'com.github.bumptech.glide:glide:4.9.0'（避重）
 * api 'com.google.android.material:material:1.1.0-alpha09'（避重）
@@ -18,6 +19,8 @@ implementation 'com.github.snpmyn:*Util*:master-SNAPSHOT'
 * implementation "org.jetbrains.kotlin:*kotlin-stdlib-jdk7*:$kotlin_version"
 
 ### 权限
+#### AndroidLibrary - Library
+待定
 #### com.github.snpmyn:Util
 ##### app
 * android:name="android.permission.WRITE_EXTERNAL_STORAGE"（避重）

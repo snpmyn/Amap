@@ -1,4 +1,4 @@
-package location.kit;
+package com.zsp.amap.library.kit;
 
 import android.app.Application;
 
