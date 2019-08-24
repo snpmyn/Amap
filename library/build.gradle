@@ -36,6 +36,6 @@ dependencies {
     /*自带*/
     api 'com.github.snpmyn:Util:master-SNAPSHOT'
     /*util*/
-    implementation 'com.amap.api:location:4.7.0'
+    api 'com.amap.api:location:4.7.0'
     /*Amap（定位）*/
 }

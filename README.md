@@ -5,7 +5,7 @@
 #### 自身
 ##### AndroidLibrary - Library
 * api 'com.github.snpmyn:*Util*:master-SNAPSHOT'（避重）
-* implementation 'com.amap.api:location:4.7.0'
+* api 'com.amap.api:location:4.7.0'（避重）
 #### com.github.snpmyn:Util(api)
 ##### AndroidLibrary - UtilOne
 * api 'com.github.bumptech.glide:glide:4.9.0'（避重）
