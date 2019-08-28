@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.zsp.amap">
 
+    <dist:module dist:instant="true" />
+
     <application
         android:name="application.App"
         android:allowBackup="false"
@@ -27,7 +29,5 @@
             android:name="com.amap.api.v2.apikey"
             android:value="f8d8e46559574b8d70a200da45d1b628" />
     </application>
-
-    <dist:module dist:instant="true" />
 
 </manifest>
