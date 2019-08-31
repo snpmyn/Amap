@@ -209,6 +209,24 @@ public class LocationKit {
     }
 
     /**
+     * 获经度
+     *
+     * @return 经度
+     */
+    public double getLongitude() {
+        return null == aMapLocationResult ? 0.0D : aMapLocationResult.getLongitude();
+    }
+
+    /**
+     * 获维度
+     *
+     * @return 纬度
+     */
+    public double getLatitude() {
+        return null == aMapLocationResult ? 0.0D : aMapLocationResult.getLatitude();
+    }
+
+    /**
      * 停定位
      * <p>
      * 不销本地定位服务。
