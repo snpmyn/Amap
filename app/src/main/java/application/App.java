@@ -23,6 +23,14 @@ public class App extends Application {
         super.onCreate();
         // Application本已单例
         instance = this;
+        // 初始化配置
+        initConfiguration();
+    }
+
+    /**
+     * 初始化配置
+     */
+    private void initConfiguration() {
         // timber
         TimberInitConfigure.initTimber(BuildConfig.DEBUG);
         // 高德（定位）
