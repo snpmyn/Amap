@@ -6,37 +6,100 @@
 [![API](https://img.shields.io/badge/API-19%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=19)
 
 ### 介绍
-高德地图
+高德地图。
 
-### 依赖
-#### 自身
-##### AndroidLibrary - Library
-* api 'com.github.snpmyn:*Util*:master-SNAPSHOT'（避重）
-* api 'com.amap.api:location:4.7.0'（避重）
+### 架构
 
-#### com.github.snpmyn:Util(api)
-##### AndroidLibrary - UtilOne
-* api 'com.github.bumptech.glide:glide:4.10.0'（避重）
-* api 'com.google.android.material:material:1.2.0-alpha01'（避重）
-* api 'io.reactivex:rxandroid:1.2.1'（避重）
-* api 'io.reactivex:rxjava:1.3.8'（避重）
-* api 'com.jakewharton.timber:timber:4.7.1'（避重）
-* api 'com.tencent:mmkv-static:1.0.23'（避重）
-* implementation 'com.getkeepsafe.relinker:relinker:1.3.1'
-* implementation 'com.qw:soulpermission:1.2.2_x'
-* implementation 'org.apache.commons:commons-lang3:3.9'
+| 模块 | 说明 |
+|:-:|:-:|
+| 示例app | 用法举例 |
+| 一方库Library | 定位集成实现 |
 
-##### AndroidLibrary - UtilTwo
-* implementation 'androidx.core:core-ktx:1.2.0-beta01'
-* implementation "org.jetbrains.kotlin:*kotlin-stdlib-jdk7*:$kotlin_version"
+### 依赖、权限
 
-### 权限
-#### AndroidLibrary - Library
-待补充
-#### com.github.snpmyn:Util
-##### app
-* android:name="android.permission.WRITE_EXTERNAL_STORAGE"（避重）
-* android:name="android.permission.READ_EXTERNAL_STORAGE"（避重）
+| 模块 | 依赖 |
+|:-:|:-:|
+| 一方库(Library) | api 'com.github.snpmyn:*Util*:master-SNAPSHOT'（避重）|
+| 一方库(Library) | api 'com.amap.api:location:4.7.0'（避重）|
+| 二方库(Util-UtilOne) | api 'com.github.bumptech.glide:glide:4.10.0'（避重）|
+| 二方库(Util-UtilOne) | api 'com.google.android.material:material:1.2.0-alpha01'（避重）|
+| 二方库(Util-UtilOne) | api 'io.reactivex:rxandroid:1.2.1'（避重）|
+| 二方库(Util-UtilOne) | api 'io.reactivex:rxjava:1.3.8'（避重）|
+| 二方库(Util-UtilOne) | api 'com.jakewharton.timber:timber:4.7.1'（避重）|
+| 二方库(Util-UtilOne) | api 'com.tencent:mmkv-static:1.0.23'（避重）|
+| 二方库(Util-UtilOne) | implementation 'com.getkeepsafe.relinker:relinker:1.3.1' |
+| 二方库(Util-UtilOne) | implementation 'com.qw:soulpermission:1.2.2_x' |
+| 二方库(Util-UtilOne) | implementation 'org.apache.commons:commons-lang3:3.9' |
+| 二方库(Util-UtilTwo) | implementation 'androidx.core:core-ktx:1.2.0-beta01' |
+| 二方库(Util-UtilTwo) | implementation "org.jetbrains.kotlin:*kotlin-stdlib-jdk7*:$kotlin_version" |
+
+| 模块 | 权限 |
+|:-:|:-:|
+| 一方库(Library) | android:name="android.permission.ACCESS_COARSE_LOCATION" |
+| 一方库(Library) | android:name="android.permission.ACCESS_FINE_LOCATION" |
+| 一方库(Library) | android:name="android.permission.ACCESS_NETWORK_STATE" |
+| 一方库(Library) | android:name="android.permission.ACCESS_WIFI_STATE" |
+| 一方库(Library) | android:name="android.permission.CHANGE_WIFI_STATE" |
+| 一方库(Library) | android:name="android.permission.INTERNET" |
+| 一方库(Library) | android:name="android.permission.READ_PHONE_STATE" |
+| 一方库(Library) | android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" |
+| 一方库(Library) | android:name="android.permission.BLUETOOTH" |
+| 一方库(Library) | android:name="android.permission.BLUETOOTH_ADMIN" |
+| 二方库(Util-app) | android:name="android.permission.WRITE_EXTERNAL_STORAGE" |
+| 二方库(Util-app) | android:name="android.permission.READ_EXTERNAL_STORAGE" |
+
+### 使用
+build.gradle(module)
+```
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {   
+    repositories {
+        google()
+        jcenter()       
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.5.1'
+        
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        maven { url "https://jitpack.io" }             
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+```
+build.gradle(app)
+```
+apply plugin: 'com.android.application'
+
+android {
+    ...
+    defaultConfig {
+        ...      
+    }       
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
+    configurations.all {
+        resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
+    }
+}
+
+dependencies {
+    implementation 'com.github.snpmyn:Amap:master-SNAPSHOT'
+}
+```
 
 ### License
 ```

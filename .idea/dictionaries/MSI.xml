@@ -2,13 +2,17 @@
   <dictionary name="MSI">
     <words>
       <w>airbnb</w>
+      <w>allprojects</w>
       <w>amap</w>
       <w>apikey</w>
+      <w>buildscript</w>
       <w>bumptech</w>
       <w>codacy</w>
       <w>defind</w>
       <w>getkeepsafe</w>
       <w>jakewharton</w>
+      <w>jcenter</w>
+      <w>jitpack</w>
       <w>litepal</w>
       <w>mmkv</w>
       <w>relinker</w>
