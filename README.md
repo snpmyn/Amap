@@ -13,14 +13,14 @@
 | 模块 | 说明 |
 |:-:|:-:|
 | 示例app | 用法举例 |
-| 一方库Library | 定位集成实现 |
+| 一方库Location | 定位集成实现 |
 
 ### 依赖、权限
 
 | 模块 | 依赖 |
 |:-:|:-:|
-| 一方库Library | api 'com.github.snpmyn:*Util*:master-SNAPSHOT'（避重）|
-| 一方库Library | api 'com.amap.api:location:4.7.0'（避重）|
+| 一方库Location | api 'com.github.snpmyn:*Util*:master-SNAPSHOT'（避重）|
+| 一方库Location | api 'com.amap.api:location:4.7.0'（避重）|
 | 二方库Util-UtilOne | api 'com.github.bumptech.glide:glide:4.10.0'（避重）|
 | 二方库Util-UtilOne | api 'com.google.android.material:material:1.2.0-alpha01'（避重）|
 | 二方库Util-UtilOne | api 'io.reactivex:rxandroid:1.2.1'（避重）|
@@ -35,16 +35,16 @@
 
 | 模块 | 权限 |
 |:-:|:-:|
-| 一方库Library | android:name="android.permission.ACCESS_COARSE_LOCATION"（避重）|
-| 一方库Library | android:name="android.permission.ACCESS_FINE_LOCATION"（避重）|
-| 一方库Library | android:name="android.permission.ACCESS_NETWORK_STATE"（避重）|
-| 一方库Library | android:name="android.permission.ACCESS_WIFI_STATE"（避重）|
-| 一方库Library | android:name="android.permission.CHANGE_WIFI_STATE"（避重）|
-| 一方库Library | android:name="android.permission.INTERNET"（避重）|
-| 一方库Library | android:name="android.permission.READ_PHONE_STATE"（避重）|
-| 一方库Library | android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"（避重）|
-| 一方库Library | android:name="android.permission.BLUETOOTH"（避重）|
-| 一方库Library | android:name="android.permission.BLUETOOTH_ADMIN"（避重）|
+| 一方库Location | android:name="android.permission.ACCESS_COARSE_LOCATION"（避重）|
+| 一方库Location | android:name="android.permission.ACCESS_FINE_LOCATION"（避重）|
+| 一方库Location | android:name="android.permission.ACCESS_NETWORK_STATE"（避重）|
+| 一方库Location | android:name="android.permission.ACCESS_WIFI_STATE"（避重）|
+| 一方库Location | android:name="android.permission.CHANGE_WIFI_STATE"（避重）|
+| 一方库Location | android:name="android.permission.INTERNET"（避重）|
+| 一方库Location | android:name="android.permission.READ_PHONE_STATE"（避重）|
+| 一方库Location | android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"（避重）|
+| 一方库Location | android:name="android.permission.BLUETOOTH"（避重）|
+| 一方库Location | android:name="android.permission.BLUETOOTH_ADMIN"（避重）|
 | 二方库Util-app | android:name="android.permission.WRITE_EXTERNAL_STORAGE"（避重）|
 | 二方库Util-app | android:name="android.permission.READ_EXTERNAL_STORAGE"（避重）|
 
