@@ -19,34 +19,34 @@
 
 | 模块 | 依赖 |
 |:-:|:-:|
-| 一方库(Library) | api 'com.github.snpmyn:*Util*:master-SNAPSHOT'（避重）|
-| 一方库(Library) | api 'com.amap.api:location:4.7.0'（避重）|
-| 二方库(Util-UtilOne) | api 'com.github.bumptech.glide:glide:4.10.0'（避重）|
-| 二方库(Util-UtilOne) | api 'com.google.android.material:material:1.2.0-alpha01'（避重）|
-| 二方库(Util-UtilOne) | api 'io.reactivex:rxandroid:1.2.1'（避重）|
-| 二方库(Util-UtilOne) | api 'io.reactivex:rxjava:1.3.8'（避重）|
-| 二方库(Util-UtilOne) | api 'com.jakewharton.timber:timber:4.7.1'（避重）|
-| 二方库(Util-UtilOne) | api 'com.tencent:mmkv-static:1.0.23'（避重）|
-| 二方库(Util-UtilOne) | implementation 'com.getkeepsafe.relinker:relinker:1.3.1' |
-| 二方库(Util-UtilOne) | implementation 'com.qw:soulpermission:1.2.2_x' |
-| 二方库(Util-UtilOne) | implementation 'org.apache.commons:commons-lang3:3.9' |
-| 二方库(Util-UtilTwo) | implementation 'androidx.core:core-ktx:1.2.0-beta01' |
-| 二方库(Util-UtilTwo) | implementation "org.jetbrains.kotlin:*kotlin-stdlib-jdk7*:$kotlin_version" |
+| 一方库Library | api 'com.github.snpmyn:*Util*:master-SNAPSHOT'（避重）|
+| 一方库Library | api 'com.amap.api:location:4.7.0'（避重）|
+| 二方库Util-UtilOne | api 'com.github.bumptech.glide:glide:4.10.0'（避重）|
+| 二方库Util-UtilOne | api 'com.google.android.material:material:1.2.0-alpha01'（避重）|
+| 二方库Util-UtilOne | api 'io.reactivex:rxandroid:1.2.1'（避重）|
+| 二方库Util-UtilOne | api 'io.reactivex:rxjava:1.3.8'（避重）|
+| 二方库Util-UtilOne | api 'com.jakewharton.timber:timber:4.7.1'（避重）|
+| 二方库Util-UtilOne | api 'com.tencent:mmkv-static:1.0.23'（避重）|
+| 二方库Util-UtilOne | implementation 'com.getkeepsafe.relinker:relinker:1.3.1' |
+| 二方库Util-UtilOne | implementation 'com.qw:soulpermission:1.2.2_x' |
+| 二方库Util-UtilOne | implementation 'org.apache.commons:commons-lang3:3.9' |
+| 二方库Util-UtilTwo | implementation 'androidx.core:core-ktx:1.2.0-beta01' |
+| 二方库Util-UtilTwo | implementation "org.jetbrains.kotlin:*kotlin-stdlib-jdk7*:$kotlin_version" |
 
 | 模块 | 权限 |
 |:-:|:-:|
-| 一方库(Library) | android:name="android.permission.ACCESS_COARSE_LOCATION" |
-| 一方库(Library) | android:name="android.permission.ACCESS_FINE_LOCATION" |
-| 一方库(Library) | android:name="android.permission.ACCESS_NETWORK_STATE" |
-| 一方库(Library) | android:name="android.permission.ACCESS_WIFI_STATE" |
-| 一方库(Library) | android:name="android.permission.CHANGE_WIFI_STATE" |
-| 一方库(Library) | android:name="android.permission.INTERNET" |
-| 一方库(Library) | android:name="android.permission.READ_PHONE_STATE" |
-| 一方库(Library) | android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" |
-| 一方库(Library) | android:name="android.permission.BLUETOOTH" |
-| 一方库(Library) | android:name="android.permission.BLUETOOTH_ADMIN" |
-| 二方库(Util-app) | android:name="android.permission.WRITE_EXTERNAL_STORAGE" |
-| 二方库(Util-app) | android:name="android.permission.READ_EXTERNAL_STORAGE" |
+| 一方库Library | android:name="android.permission.ACCESS_COARSE_LOCATION"（避重）|
+| 一方库Library | android:name="android.permission.ACCESS_FINE_LOCATION"（避重）|
+| 一方库Library | android:name="android.permission.ACCESS_NETWORK_STATE"（避重）|
+| 一方库Library | android:name="android.permission.ACCESS_WIFI_STATE"（避重）|
+| 一方库Library | android:name="android.permission.CHANGE_WIFI_STATE"（避重）|
+| 一方库Library | android:name="android.permission.INTERNET"（避重）|
+| 一方库Library | android:name="android.permission.READ_PHONE_STATE"（避重）|
+| 一方库Library | android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"（避重）|
+| 一方库Library | android:name="android.permission.BLUETOOTH"（避重）|
+| 一方库Library | android:name="android.permission.BLUETOOTH_ADMIN"（避重）|
+| 二方库Util-app | android:name="android.permission.WRITE_EXTERNAL_STORAGE"（避重）|
+| 二方库Util-app | android:name="android.permission.READ_EXTERNAL_STORAGE"（避重）|
 
 ### 使用
 build.gradle(module)
@@ -83,16 +83,40 @@ build.gradle(app)
 apply plugin: 'com.android.application'
 
 android {
-    ...
+    signingConfigs {
+        debug {
+            storeFile file('../amap.jks')
+            storePassword 'xxx'
+            keyPassword 'xxx'
+            keyAlias = 'key0'
+        }
+        release {
+            storeFile file('../amap.jks')
+            storePassword 'xxx'
+            keyPassword 'xxx'
+            keyAlias = 'key0'
+        }
+    }
+    compileSdkVersion 29
     defaultConfig {
-        ...      
-    }       
+        ...
+        ndk {
+            abiFilters 'armeabi-v7a'//,'x86','armeabi','arm64-v8a','x86_64','mips','mips64'
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+        debug {
+            signingConfig signingConfigs.debug
+        }
+    }
     compileOptions {
         sourceCompatibility 1.8
         targetCompatibility 1.8
-    }
-    configurations.all {
-        resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
     }
 }
 
