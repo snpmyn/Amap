@@ -10,15 +10,16 @@
 
 ### 架构
 
-| 模块 | 说明 |
-|:-:|:-:|
-| 示例app | 用法举例 |
-| 一方库Location | 定位集成实现 |
+| 模块 | 说明 | 补充 |
+|:-:|:-:|:-:|
+| 示例app | 用法举例 | 无 |
+| 一方库Location | 定位集成实现 | 无 |
 
 ### 依赖、权限
 
 | 模块 | 依赖 |
 |:-:|:-:|
+| 示例app | implementation project(path: ':location') |
 | 一方库Location | api 'com.github.snpmyn:*Util*:master-SNAPSHOT'（避重）|
 | 一方库Location | api 'com.amap.api:location:4.7.0'（避重）|
 | 二方库Util-UtilOne | api 'com.github.bumptech.glide:glide:4.10.0'（避重）|
@@ -35,6 +36,7 @@
 
 | 模块 | 权限 |
 |:-:|:-:|
+| 示例app | 无 |
 | 一方库Location | android:name="android.permission.ACCESS_COARSE_LOCATION"（避重）|
 | 一方库Location | android:name="android.permission.ACCESS_FINE_LOCATION"（避重）|
 | 一方库Location | android:name="android.permission.ACCESS_NETWORK_STATE"（避重）|
@@ -47,6 +49,8 @@
 | 一方库Location | android:name="android.permission.BLUETOOTH_ADMIN"（避重）|
 | 二方库Util-app | android:name="android.permission.WRITE_EXTERNAL_STORAGE"（避重）|
 | 二方库Util-app | android:name="android.permission.READ_EXTERNAL_STORAGE"（避重）|
+| 二方库Util-UtilOne | 无 |
+| 二方库Util-UtilTwo | 无 |
 
 ### 使用
 build.gradle(module)
