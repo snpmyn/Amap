@@ -20,7 +20,7 @@
 | 模块 | 依赖 |
 |:-:|:-:|
 | 示例app | implementation project(path: ':location') |
-| 一方库Location | api 'com.github.snpmyn.Util:*utilone*:master-SNAPSHOT'（避重）|
+| 一方库Location | api 'com.github.snpmyn.Util:*utilone*:v1.0.1'（避重）|
 | 一方库Location | api 'com.amap.api:location:4.7.0'（避重）|
 | 二方库Util-示例app | implementation project(path: ':utilone') |
 | 二方库Util-示例app | implementation project(path: ':utiltwo') |
@@ -55,8 +55,8 @@
 | 二方库Util-UtilTwo | 无 |
 
 ### 使用
-> 版本快速迭代中，暂时使用`master-SNAPSHOT`版。<br>
-> 获取不成功请暂时查看源码。
+> [SECURITY](https://github.com/snpmyn/Amap/blob/master/SECURITY.md)<br>
+> 版本快速迭代中，拉取失败暂时查看源码。
 
 build.gradle(module)
 ```
@@ -134,7 +134,7 @@ android {
 }
 
 dependencies {
-    implementation 'com.github.snpmyn:Amap:master-SNAPSHOT'
+    implementation 'com.github.snpmyn:Amap:v1.0.1'
 }
 ```
 
