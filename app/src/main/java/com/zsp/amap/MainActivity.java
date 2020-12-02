@@ -1,6 +1,7 @@
 package com.zsp.amap;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -22,6 +23,7 @@ import butterknife.OnClick;
  * @date: 2019/6/22 11:20
  */
 public class MainActivity extends AppCompatActivity {
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.mainActivityTvResult)
     TextView mainActivityTvResult;
     /**
@@ -41,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         soulPermissionUtils = new SoulPermissionUtils();
     }
 
+    @SuppressLint("NonConstantResourceId")
     @OnClick(R.id.mainActivityMbLocationResult)
     public void onViewClicked(View view) {
         if (view.getId() == R.id.mainActivityMbLocationResult) {

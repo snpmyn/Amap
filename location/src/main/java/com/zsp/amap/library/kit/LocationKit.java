@@ -23,7 +23,7 @@ public class LocationKit {
     /**
      * 定位客户端
      */
-    private AMapLocationClient aMapLocationClient;
+    private final AMapLocationClient aMapLocationClient;
     /**
      * 定位客户端配置
      */
